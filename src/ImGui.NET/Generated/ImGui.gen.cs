@@ -206,7 +206,7 @@ namespace ImGuiNET
             Vector2 size = new Vector2();
             byte border = 0;
             ImGuiWindowFlags flags = (ImGuiWindowFlags)0;
-            byte ret = ImGuiNative.igBeginChild(native_str_id, size, border, flags);
+            byte ret = ImGuiNative.igBeginChildStr(native_str_id, size, border, flags);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -235,7 +235,7 @@ namespace ImGuiNET
             else { native_str_id = null; }
             byte border = 0;
             ImGuiWindowFlags flags = (ImGuiWindowFlags)0;
-            byte ret = ImGuiNative.igBeginChild(native_str_id, size, border, flags);
+            byte ret = ImGuiNative.igBeginChildStr(native_str_id, size, border, flags);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -264,7 +264,7 @@ namespace ImGuiNET
             else { native_str_id = null; }
             byte native_border = border ? (byte)1 : (byte)0;
             ImGuiWindowFlags flags = (ImGuiWindowFlags)0;
-            byte ret = ImGuiNative.igBeginChild(native_str_id, size, native_border, flags);
+            byte ret = ImGuiNative.igBeginChildStr(native_str_id, size, native_border, flags);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -292,7 +292,7 @@ namespace ImGuiNET
             }
             else { native_str_id = null; }
             byte native_border = border ? (byte)1 : (byte)0;
-            byte ret = ImGuiNative.igBeginChild(native_str_id, size, native_border, flags);
+            byte ret = ImGuiNative.igBeginChildStr(native_str_id, size, native_border, flags);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -1259,7 +1259,7 @@ namespace ImGuiNET
             }
             else { native_label = null; }
             ImGuiTreeNodeFlags flags = (ImGuiTreeNodeFlags)0;
-            byte ret = ImGuiNative.igCollapsingHeader(native_label, flags);
+            byte ret = ImGuiNative.igCollapsingHeaderTreeNodeFlags(native_label, flags);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_label);
@@ -1286,7 +1286,7 @@ namespace ImGuiNET
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            byte ret = ImGuiNative.igCollapsingHeader(native_label, flags);
+            byte ret = ImGuiNative.igCollapsingHeaderTreeNodeFlags(native_label, flags);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_label);
@@ -1870,7 +1870,7 @@ namespace ImGuiNET
             int popup_max_height_in_items = -1;
             fixed (int* native_current_item = &current_item)
             {
-                byte ret = ImGuiNative.igCombo(native_label, native_current_item, native_items, items_count, popup_max_height_in_items);
+                byte ret = ImGuiNative.igComboStr_arr(native_label, native_current_item, native_items, items_count, popup_max_height_in_items);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
                 {
                     Util.Free(native_label);
@@ -1927,7 +1927,7 @@ namespace ImGuiNET
             }
             fixed (int* native_current_item = &current_item)
             {
-                byte ret = ImGuiNative.igCombo(native_label, native_current_item, native_items, items_count, popup_max_height_in_items);
+                byte ret = ImGuiNative.igComboStr_arr(native_label, native_current_item, native_items, items_count, popup_max_height_in_items);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
                 {
                     Util.Free(native_label);

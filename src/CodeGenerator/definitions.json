@@ -6830,7 +6830,7 @@
       },
       "funcname": "BeginChild",
       "namespace": "ImGui",
-      "ov_cimguiname": "igBeginChild",
+      "ov_cimguiname": "igBeginChildStr",
       "ret": "bool",
       "signature": "(const char*,const ImVec2,bool,ImGuiWindowFlags)",
       "stname": ""
@@ -7664,7 +7664,7 @@
       },
       "funcname": "CollapsingHeader",
       "namespace": "ImGui",
-      "ov_cimguiname": "igCollapsingHeader",
+      "ov_cimguiname": "igCollapsingHeaderTreeNodeFlags",
       "ret": "bool",
       "signature": "(const char*,ImGuiTreeNodeFlags)",
       "stname": ""
@@ -8101,7 +8101,7 @@
       },
       "funcname": "Combo",
       "namespace": "ImGui",
-      "ov_cimguiname": "igCombo",
+      "ov_cimguiname": "igComboStr_arr",
       "ret": "bool",
       "signature": "(const char*,int*,const char* const[],int,int)",
       "stname": ""
