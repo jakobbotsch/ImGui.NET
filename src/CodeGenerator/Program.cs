@@ -100,7 +100,8 @@ namespace CodeGenerator
         private static readonly HashSet<string> s_skippedFunctions = new HashSet<string>()
         {
             "igInputText",
-            "igInputTextMultiline"
+            "igInputTextMultiline",
+            "igLogText",
         };
 
         static void Main(string[] args)
@@ -483,7 +484,11 @@ namespace CodeGenerator
                                 paramType = paramType + "*";
                             }
 
-                            if (p.Name == "...") { continue; }
+                            if (p.Name == "...")
+                            {
+                                paramParts.Add($"__arglist");
+                                continue;
+                            }
 
                             paramParts.Add($"{paramType} {CorrectIdentifier(p.Name)}");
 
@@ -837,6 +842,9 @@ namespace CodeGenerator
 
                 nativeInvocationArgs.Add(mp.VarName);
             }
+
+            if (overload.Parameters.Any(tr => tr.Name == "..."))
+                nativeInvocationArgs.Add("__arglist()");
 
             string nativeInvocationStr = string.Join(", ", nativeInvocationArgs);
             string ret = safeRet == "void" ? string.Empty : $"{nativeRet} ret = ";

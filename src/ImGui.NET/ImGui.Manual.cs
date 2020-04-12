@@ -108,6 +108,7 @@ namespace ImGuiNET
                 utf8LabelBytes = stackPtr;
             }
             Util.GetUtf8(label, utf8LabelBytes, utf8LabelByteCount);
+            utf8LabelBytes[utf8LabelByteCount] = 0;
 
             int utf8InputByteCount = Encoding.UTF8.GetByteCount(input);
             int inputBufSize = Math.Max((int)maxLength + 1, utf8InputByteCount + 1);
@@ -198,6 +199,7 @@ namespace ImGuiNET
                 utf8LabelBytes = stackPtr;
             }
             Util.GetUtf8(label, utf8LabelBytes, utf8LabelByteCount);
+            utf8LabelBytes[utf8LabelByteCount] = 0;
 
             int utf8InputByteCount = Encoding.UTF8.GetByteCount(input);
             int inputBufSize = Math.Max((int)maxLength + 1, utf8InputByteCount + 1);
@@ -294,6 +296,7 @@ namespace ImGuiNET
                 utf8LabelBytes = stackPtr;
             }
             Util.GetUtf8(label, utf8LabelBytes, utf8LabelByteCount);
+            utf8LabelBytes[utf8LabelByteCount] = 0;
 
             bool ret = ImGuiNative.igInputText(utf8LabelBytes, (byte*)buf.ToPointer(), buf_size, flags, callback, user_data.ToPointer()) != 0;
 
@@ -319,6 +322,7 @@ namespace ImGuiNET
                 utf8NameBytes = stackPtr;
             }
             Util.GetUtf8(name, utf8NameBytes, utf8NameByteCount);
+            utf8NameBytes[utf8NameByteCount] = 0;
 
             byte* p_open = null;
             byte ret = ImGuiNative.igBegin(utf8NameBytes, p_open, flags);
@@ -334,6 +338,33 @@ namespace ImGuiNET
         public static bool MenuItem(string label, bool enabled)
         {
             return MenuItem(label, string.Empty, false, enabled);
+        }
+
+        public static void LogText(string text)
+        {
+            int utf8TextByteCount = Encoding.UTF8.GetByteCount(text);
+            byte* utf8TextBytes;
+            if (utf8TextByteCount > Util.StackAllocationSizeLimit)
+            {
+                utf8TextBytes = Util.Allocate(utf8TextByteCount + 1);
+            }
+            else
+            {
+                byte* stackPtr = stackalloc byte[utf8TextByteCount + 1];
+                utf8TextBytes = stackPtr;
+            }
+            Util.GetUtf8(text, utf8TextBytes, utf8TextByteCount);
+            utf8TextBytes[utf8TextByteCount] = 0;
+
+            byte* fmt = stackalloc byte[] { (byte)'%', (byte)'s', (byte)'\0' };
+
+            byte* p_open = null;
+            ImGuiNative.igLogText(fmt, __arglist(utf8TextBytes));
+
+            if (utf8TextByteCount > Util.StackAllocationSizeLimit)
+            {
+                Util.Free(utf8TextBytes);
+            }
         }
     }
 }

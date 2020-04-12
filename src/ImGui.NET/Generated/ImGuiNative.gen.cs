@@ -53,7 +53,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igBullet();
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igBulletText(byte* fmt);
+        public static extern void igBulletText(byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte igButton(byte* label, Vector2 size);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -383,7 +383,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte igIsWindowHovered(ImGuiHoveredFlags flags);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igLabelText(byte* label, byte* fmt);
+        public static extern void igLabelText(byte* label, byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte igListBoxStr_arr(byte* label, int* current_item, byte** items, int items_count, int height_in_items);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -401,7 +401,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igLogFinish();
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igLogText(byte* fmt);
+        public static extern void igLogText(byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igLogToClipboard(int auto_open_depth);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -561,7 +561,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igSetTabItemClosed(byte* tab_or_docked_window_label);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igSetTooltip(byte* fmt);
+        public static extern void igSetTooltip(byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igSetWindowCollapsedBool(byte collapsed, ImGuiCond cond);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -627,27 +627,27 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igStyleColorsLight(ImGuiStyle* dst);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igText(byte* fmt);
+        public static extern void igText(byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igTextColored(Vector4 col, byte* fmt);
+        public static extern void igTextColored(Vector4 col, byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igTextDisabled(byte* fmt);
+        public static extern void igTextDisabled(byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igTextUnformatted(byte* text, byte* text_end);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void igTextWrapped(byte* fmt);
+        public static extern void igTextWrapped(byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte igTreeNodeStr(byte* label);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern byte igTreeNodeStrStr(byte* str_id, byte* fmt);
+        public static extern byte igTreeNodeStrStr(byte* str_id, byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern byte igTreeNodePtr(void* ptr_id, byte* fmt);
+        public static extern byte igTreeNodePtr(void* ptr_id, byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte igTreeNodeExStr(byte* label, ImGuiTreeNodeFlags flags);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern byte igTreeNodeExStrStr(byte* str_id, ImGuiTreeNodeFlags flags, byte* fmt);
+        public static extern byte igTreeNodeExStrStr(byte* str_id, ImGuiTreeNodeFlags flags, byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern byte igTreeNodeExPtr(void* ptr_id, ImGuiTreeNodeFlags flags, byte* fmt);
+        public static extern byte igTreeNodeExPtr(void* ptr_id, ImGuiTreeNodeFlags flags, byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void igTreePop();
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
@@ -1045,7 +1045,7 @@ namespace ImGuiNET
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern void ImGuiTextBuffer_append(ImGuiTextBuffer* self, byte* str, byte* str_end);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void ImGuiTextBuffer_appendf(ImGuiTextBuffer* self, byte* fmt);
+        public static extern void ImGuiTextBuffer_appendf(ImGuiTextBuffer* self, byte* fmt, __arglist);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]
         public static extern byte* ImGuiTextBuffer_begin(ImGuiTextBuffer* self);
         [DllImport("cimgui", CallingConvention = CallingConvention.Cdecl)]

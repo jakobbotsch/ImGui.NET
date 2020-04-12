@@ -65,7 +65,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            ImGuiNative.ImGuiTextBuffer_appendf(NativePtr, native_fmt);
+            ImGuiNative.ImGuiTextBuffer_appendf(NativePtr, native_fmt, __arglist());
             if (fmt_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_fmt);

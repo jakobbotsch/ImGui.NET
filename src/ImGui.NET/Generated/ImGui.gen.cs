@@ -1058,7 +1058,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            ImGuiNative.igBulletText(native_fmt);
+            ImGuiNative.igBulletText(native_fmt, __arglist());
             if (fmt_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_fmt);
@@ -8273,7 +8273,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            ImGuiNative.igLabelText(native_label, native_fmt);
+            ImGuiNative.igLabelText(native_label, native_fmt, __arglist());
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_label);
@@ -8598,32 +8598,6 @@ namespace ImGuiNET
         public static void LogFinish()
         {
             ImGuiNative.igLogFinish();
-        }
-        public static void LogText(string fmt)
-        {
-            byte* native_fmt;
-            int fmt_byteCount = 0;
-            if (fmt != null)
-            {
-                fmt_byteCount = Encoding.UTF8.GetByteCount(fmt);
-                if (fmt_byteCount > Util.StackAllocationSizeLimit)
-                {
-                    native_fmt = Util.Allocate(fmt_byteCount + 1);
-                }
-                else
-                {
-                    byte* native_fmt_stackBytes = stackalloc byte[fmt_byteCount + 1];
-                    native_fmt = native_fmt_stackBytes;
-                }
-                int native_fmt_offset = Util.GetUtf8(fmt, native_fmt, fmt_byteCount);
-                native_fmt[native_fmt_offset] = 0;
-            }
-            else { native_fmt = null; }
-            ImGuiNative.igLogText(native_fmt);
-            if (fmt_byteCount > Util.StackAllocationSizeLimit)
-            {
-                Util.Free(native_fmt);
-            }
         }
         public static void LogToClipboard()
         {
@@ -10563,7 +10537,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            ImGuiNative.igSetTooltip(native_fmt);
+            ImGuiNative.igSetTooltip(native_fmt, __arglist());
             if (fmt_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_fmt);
@@ -12466,7 +12440,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            ImGuiNative.igText(native_fmt);
+            ImGuiNative.igText(native_fmt, __arglist());
             if (fmt_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_fmt);
@@ -12492,7 +12466,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            ImGuiNative.igTextColored(col, native_fmt);
+            ImGuiNative.igTextColored(col, native_fmt, __arglist());
             if (fmt_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_fmt);
@@ -12518,7 +12492,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            ImGuiNative.igTextDisabled(native_fmt);
+            ImGuiNative.igTextDisabled(native_fmt, __arglist());
             if (fmt_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_fmt);
@@ -12571,7 +12545,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            ImGuiNative.igTextWrapped(native_fmt);
+            ImGuiNative.igTextWrapped(native_fmt, __arglist());
             if (fmt_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_fmt);
@@ -12642,7 +12616,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            byte ret = ImGuiNative.igTreeNodeStrStr(native_str_id, native_fmt);
+            byte ret = ImGuiNative.igTreeNodeStrStr(native_str_id, native_fmt, __arglist());
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -12674,7 +12648,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            byte ret = ImGuiNative.igTreeNodePtr(native_ptr_id, native_fmt);
+            byte ret = ImGuiNative.igTreeNodePtr(native_ptr_id, native_fmt, __arglist());
             if (fmt_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_fmt);
@@ -12774,7 +12748,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            byte ret = ImGuiNative.igTreeNodeExStrStr(native_str_id, flags, native_fmt);
+            byte ret = ImGuiNative.igTreeNodeExStrStr(native_str_id, flags, native_fmt, __arglist());
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -12806,7 +12780,7 @@ namespace ImGuiNET
                 native_fmt[native_fmt_offset] = 0;
             }
             else { native_fmt = null; }
-            byte ret = ImGuiNative.igTreeNodeExPtr(native_ptr_id, flags, native_fmt);
+            byte ret = ImGuiNative.igTreeNodeExPtr(native_ptr_id, flags, native_fmt, __arglist());
             if (fmt_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_fmt);
